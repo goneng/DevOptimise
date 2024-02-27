@@ -14,6 +14,8 @@ DevOps Tips
 ## git
 
 - [git Aliases and Shortcuts](./git/source_git_aliases.sh)
+- [git Common Workflows](./git/git_Workflows.md)
+- [git Common Workflows' Cheat-Sheet](./git/git_Workflows_CS.md)
 - [git Tips](./git/git_Tips.md)
 - git lectures by [_Paolo Perrotta_](https://app.pluralsight.com/profile/author/paolo-perrotta):
   - [Wrapping your Head Around git](https://vimeo.com/146478456)
