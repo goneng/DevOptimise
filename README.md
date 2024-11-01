@@ -5,6 +5,8 @@ DevOps Tips
 ([How to view Markdown in browser on Unix](https://superuser.com/a/1175837/160372) )
 
 - [git](#git)
+- [GitLab](#gitlab)
+- [Jenkins](#jenkins)
 - [MarkDown](#markdown)
 - [Python](#python)
 - [Unix Admin](#unix-admin)
@@ -26,6 +28,21 @@ DevOps Tips
 - [Learn Git-Branching via a Game(!)](https://learngitbranching.js.org/)\
   (can also skip the exercises and [just play-around with it](https://learngitbranching.js.org/?NODEMO))
 - [Set git-prompt for Unix](./git/Set_Git-Prompt_for_Unix.md)
+
+&nbsp;
+
+## GitLab
+
+- Manage GitLab Users
+  - [Python script](GitLab/manage_gitlab_users.py)
+  - [Shell wrapper](GitLab/manage_gitlab_users.sh)
+
+&nbsp;
+
+## Jenkins
+
+- [Jenkins - Install on Ubuntu](Jenkins/Jenkins_Upgrade_on_Ubuntu.md)
+- [Jenkins - Backup jobs and settings (shell-script)](Jenkins/jenkins_jobs_backup_to_git.sh)
 
 &nbsp;
 
