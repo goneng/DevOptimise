@@ -1,9 +1,67 @@
 # Git-Ignore file _________________________________________
 
-# macOS files _____________________________________________
-.DS_Store
+# Ignore some git-related files ___________________________
+*.diff
+*.patch
 
-# Visual-Studio Code ______________________________________
+# Ignore build artifacts __________________________________
+build/
+dist/
+
+# Ignore dependencies _____________________________________
+node_modules/
+vendor/
+
+# Ignore logs and temporary files __________________________
+*.log
+*.tmp
+*.txt
+
+# Ignore IDE and editor files ______________________________
+.idea/
 .vscode/
 *.code-workspace
+*.swp
+
+# Ignore compiled binaries and libraries ___________________
+*.exe
+*.dll
+*.so
+
+# Ignore package lock files ________________________________
+package-lock.json
+yarn.lock
+
+# Ignore environment-specific files _________________________
+.env
+.env.local
+.env.*.local
+
+# Ignore sensitive or private information ___________________
+secrets.txt
+credentials.json
+
+# Ignore generated documentation ___________________________
+docs/
+
+# Ignore backup files ______________________________________
+*.bak
+*.backup
+
+# Ignore cache directories _________________________________
+.cache/
+.tmp/
+
+# Ignore OS-specific cache files ____________________________
+.DS_Store
+Thumbs.db
+
+# Ignore Python and VirtualEnv files ________________________
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*venv/
+
+# Ignore miscellaneous files ________________________________
 
