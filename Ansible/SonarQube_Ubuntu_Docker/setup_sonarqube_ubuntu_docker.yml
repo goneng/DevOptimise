@@ -4,13 +4,12 @@
   gather_facts: yes
 
   vars:
-    docker_compose_version: "v2.29.1"
-    # sonarqube_version: "10.1-community"
-    sonarqube_port: "9000"
-    # postgres_password: "YourStrong!Passw0rd"
-    # sonar_postgres_db: "sonarqube"
-    # sonar_postgres_user: "sonaruser"
-    # sonar_postgres_password: "YourSonarDBPassword"
+    docker_compose_version: "{{ DOCKER_COMPOSE_VER | default('v2.29.1', true) }}"
+
+    sonarqube_version:  "{{ SONAR_VER | default('10.6.0', true) }}"
+    sonarqube_edition:  "{{ SONAR_EDT | default('community', true) }}"  # or "enterprise"
+    sonarqube_port:     "{{ SONAR_PRT | default('9000', true) }}"
+    postgres_version:   "{{ POSTGRES_VER | default('13', true) }}"
 
     target_workdir: "/home/{{ ansible_user }}"
     target_docker_compose_file: "docker-compose-sonar.yml"
@@ -52,9 +51,6 @@
           - software-properties-common
           - gnupg-agent
           - default-jre
-          # - python3-psycopg2
-          # - postgresql
-          # - postgresql-contrib
         state: present
 
     - name: Configure system limits for SonarQube
@@ -136,11 +132,11 @@
         dest: "{{ target_workdir }}/{{ target_docker_compose_file }}"
         owner: "{{ ansible_user }}"  # Set the owner to ansible_user
         mode: '0644'
-      vars:
-        sonarqube_version: "10.6.0"
-        sonarqube_edition:  "enterprise"  # or "community"
-        sonarqube_port: "9000"
-        postgres_version: "13"
+      # vars:
+        # sonarqube_version: "10.6.0"
+        # sonarqube_edition: "enterprise"  # or "community"
+        # sonarqube_port: "9000"
+        # postgres_version: "13"
 
     - name: Run SonarQube container via docker-compose (Create and start services)
       community.docker.docker_compose_v2:
