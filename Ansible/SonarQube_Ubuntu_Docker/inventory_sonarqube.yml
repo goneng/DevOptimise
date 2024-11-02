@@ -1,0 +1,7 @@
+---
+
+sonarqube:
+  hosts:
+    SonarQubePOC:
+      ansible_host: "10.11.27.18"   # https://10.11.27.18/
+      ansible_python_interpreter: /usr/bin/python3
