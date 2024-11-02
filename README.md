@@ -65,6 +65,7 @@ DevOps Tips
 - [Bash - Pitfalls (and guide)](http://mywiki.wooledge.org/BashPitfalls)
 - [Change Hostname - Linux](Unix_Admin/Change_Hostname_Linux.md)
 - [Change Hostname - macOS](Unix_Admin/Change_Hostname_macOS.md)
+- [Fix MS-Teams on macOS](Unix_Admin/Fix_MS_Teams_macOS.md)
 - [Import CA Root Certificate to Linux](Unix_Admin/Import_CA_Root_Certificate.md)
 - [Manage Software Packages](Unix_Admin/Package_Manager.md)
 - [Rename User (on single-user Ubuntu machines)](Unix_Admin/Rename_Single_User.md)
