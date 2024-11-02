@@ -3,11 +3,10 @@
 # Set default values for parameters, case they are empty or undefined
 : "${GIT_ROOT:=$(git rev-parse --show-toplevel)}"
 : "${SCRIPT_HOME:=$GIT_ROOT/Ansible/SonarQube_Ubuntu_Docker/}"
-: "${SERVER:=sonarqube-test}"
 
 SCRIPT_NAME="$(basename "$0")"
 echo "--- -----------------------------------------------------------------------------------------"
-echo "-S- ${SCRIPT_NAME}: Setup SonarQube (in ${SERVER})"
+echo "-S- ${SCRIPT_NAME}: Setup SonarQube on Ubuntu using Docker"
 echo "--- -----------------------------------------------------------------------------------------"
 echo "-I- Running as '$(whoami)' on '$(hostname)'"
 
