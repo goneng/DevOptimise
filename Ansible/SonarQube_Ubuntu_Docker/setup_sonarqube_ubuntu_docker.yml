@@ -1,0 +1,165 @@
+---
+- hosts: sonarqube
+  become: yes
+  gather_facts: yes
+
+  vars:
+    docker_compose_version: "v2.29.1"
+    # sonarqube_version: "10.1-community"
+    sonarqube_port: "9000"
+    # postgres_password: "YourStrong!Passw0rd"
+    # sonar_postgres_db: "sonarqube"
+    # sonar_postgres_user: "sonaruser"
+    # sonar_postgres_password: "YourSonarDBPassword"
+
+    target_workdir: "/home/{{ ansible_user }}"
+    target_docker_compose_file: "docker-compose-sonar.yml"
+
+    ansible_user: "{{ ANSIBLE_USER }}"
+    ansible_pass: "{{ ANSIBLE_PASS }}"
+    ansible_ssh_user: "{{ ANSIBLE_USER }}"
+    ansible_ssh_pass: "{{ ANSIBLE_PASS }}"
+    ansible_become_pass: "{{ ANSIBLE_BECOME_PASS | default( ANSIBLE_PASS, true ) }}"
+
+    ansible_kernel_REAL: "linux"
+#   python_interpreter: "/usr/bin/python3"
+
+  tasks:
+
+    - name: Confirm that 'seccomp' is available on the kernel
+      shell:
+        cmd: "grep -q \"{{ item }}\" /boot/config-{{ ansible_kernel }}"
+      with_items:
+        - "CONFIG_SECCOMP=y"
+        - "CONFIG_SECCOMP_FILTER=y"
+        - "CONFIG_HAVE_ARCH_SECCOMP_FILTER=y"
+      ignore_errors: no
+      register: seccomp_check
+      # failed_when: seccomp_check.rc != 0
+
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+        force_apt_get: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - gnupg-agent
+          - default-jre
+          # - python3-psycopg2
+          # - postgresql
+          # - postgresql-contrib
+        state: present
+
+    - name: Configure system limits for SonarQube
+      lineinfile:
+        dest: /etc/security/limits.conf
+        state: present
+        line: "{{ item }}"
+      with_items:
+        - "* soft nofile 65536"  # Maximum number of open files (soft limit)
+        - "* hard nofile 65536"  # Maximum number of open files (hard limit)
+        - "* soft nproc 4096"    # Maximum number of processes (soft limit)
+        - "* hard nproc 4096"    # Maximum number of processes (hard limit)"
+
+    - name: Configure file system limits in sysctl for SonarQube
+      sysctl:
+        name: "{{ item.key }}"
+        value: "{{ item.value }}"
+        state: present
+        reload: yes
+      with_items:
+        - { key: "vm.max_map_count", value: "524288" }  # Memory mapping count, required by Elasticsearch (used by SonarQube)
+        - { key: "fs.file-max", value: "65536" }        # Maximum number of open files at the kernel level
+
+    - name: Ensure pam_limits is enabled
+      lineinfile:
+        path: "/etc/pam.d/common-session"
+        line: "session required pam_limits.so"
+        state: present
+
+    - name: Reload sysctl to apply changes
+      command: sysctl -p
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: "https://download.docker.com/linux/ubuntu/gpg"
+        state: present
+
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: "deb https://download.docker.com/linux/ubuntu focal stable"
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+
+    - name: Install Docker Compose
+      get_url:
+        url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_kernel_REAL }}-{{ ansible_architecture }}"
+        dest: "/usr/local/bin/docker-compose"
+        mode: '0755'
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Create Docker volumes for SonarQube
+      community.docker.docker_volume:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "sonarqube_data"
+        - "sonarqube_logs"
+        - "sonarqube_extensions"
+
+    - name: Get the user's home dir on the remote host
+      debug: var=ansible_env.HOME
+      become: true
+      become_user: "{{ ansible_user }}"
+
+    - name: Generate a Docker-Compose file on the target-host
+      ansible.builtin.template:
+        src: templates/docker-compose-sonar.yml.j2
+        #FIXME: Have a smarter way to get the user's home dir
+        dest: "{{ target_workdir }}/{{ target_docker_compose_file }}"
+        owner: "{{ ansible_user }}"  # Set the owner to ansible_user
+        mode: '0644'
+      vars:
+        sonarqube_version: "10.6.0"
+        sonarqube_edition:  "enterprise"  # or "community"
+        sonarqube_port: "9000"
+        postgres_version: "13"
+
+    - name: Run SonarQube container via docker-compose (Create and start services)
+      community.docker.docker_compose_v2:
+        #FIXME: Point to the actual docker-compose file
+        project_src: "{{ target_workdir }}"
+        files:
+          - "{{ target_docker_compose_file }}"
+      register: docker_compose_results
+
+    - name: Show results
+      ansible.builtin.debug:
+        var: docker_compose_results
+
+    - name: "Ensure SonarQube is up and running at 'http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ sonarqube_port }}/'"
+      uri:
+        url: "http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ sonarqube_port }}"
+        return_content: yes
+      register: sonarqube_status
+      retries: 10
+      delay: 15
+      until: "sonarqube_status.status == 200"
+
