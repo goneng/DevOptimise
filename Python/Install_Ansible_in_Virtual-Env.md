@@ -5,6 +5,7 @@ Set Ansible in a sandboxed Python environment\
 
 (See also [Setup VirtualEnv](./Set_Virtual-Env.md))
 
+### Table of Contents <!-- omit in toc -->
 - [Setup the Host](#setup-the-host)
 - [Activate the Virtual-Env](#activate-the-virtual-env)
   - [Install Ansible on the Virtual-Env](#install-ansible-on-the-virtual-env)
