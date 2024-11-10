@@ -3,6 +3,7 @@
 Set a sandboxed Python environment\
 (the preferred way to use Python in production)
 
+### Table of Contents <!-- omit in toc -->
 - [What is it good for](#what-is-it-good-for)
 - [One-Time Effort](#one-time-effort)
   - [Setup the Host](#setup-the-host)
@@ -13,6 +14,8 @@ Set a sandboxed Python environment\
   - [Initialize the Virtual-Env](#initialize-the-virtual-env)
   - [Install Required Python Packages on the Virtual-Env](#install-required-python-packages-on-the-virtual-env)
 - [Exit the Virtual-Env](#exit-the-virtual-env)
+
+&nbsp;
 
 ## What is it good for
 
@@ -29,6 +32,8 @@ from PyPI can be annoying and time-intensive.\
 Even worse are OS-provided installations that start throwing cryptic error messages.\
 Especially desktops are prone to that but it’s possible to break the whole toolchain\
 of a server by installing some shiny package you heard about on reddit."
+
+&nbsp;
 
 ## One-Time Effort
 
@@ -53,6 +58,8 @@ PyYAML==3.12
 
 - The list should reflect all required modules and their versions
 - Make sure all modules are set to a specific version (with the `==` operator)
+
+&nbsp;
 
 ## Create and Use the Virtual-Env
 
@@ -82,6 +89,8 @@ source "${VENV_DIR}/bin/activate"
 pip3 install -r ./requirements.txt
 ```
 
+&nbsp;
+
 ## Exit the Virtual-Env
 
 Case you would like to exit the virtualenv, run this:
@@ -89,3 +98,5 @@ Case you would like to exit the virtualenv, run this:
 ```bash
 deactivate
 ```
+
+&nbsp;

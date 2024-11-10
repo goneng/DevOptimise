@@ -2,8 +2,11 @@
 
 Note this may cause delays when working in large repositories
 
+### Table of Contents <!-- omit in toc -->
 - [Get a Copy of git-prompt](#get-a-copy-of-git-prompt)
 - [Configure your Login Script](#configure-your-login-script)
+
+&nbsp;
 
 ## Get a Copy of git-prompt
 
@@ -15,6 +18,8 @@ cd ~/.bash
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 chmod 755 git-prompt.sh
 ```
+
+&nbsp;
 
 ## Configure your Login Script
 
@@ -38,3 +43,5 @@ if [ -f ~/.bash/git-prompt.sh ]; then
     PS1+="\$(__git_ps1) "
 fi
 ```
+
+&nbsp;

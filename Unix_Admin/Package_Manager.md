@@ -2,6 +2,7 @@
 
 Tips for working with package-managers like `apt-get`
 
+### Table of Contents <!-- omit in toc -->
 - [A Typical Workflow](#a-typical-workflow)
 - [apt / apt-get (Ubuntu, Debian)](#apt--apt-get-ubuntu-debian)
   - [Find the Origin of a File](#find-the-origin-of-a-file)

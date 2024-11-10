@@ -2,9 +2,10 @@
 
 Best-practices for naming hosts
 
-(from [Install Linux Virtual Delivery Agent for Ubuntu](https://docs.citrix.com/en-us/linux-virtual-delivery-agent/current-release/installation-overview/ubuntu.html) \
-and [Change the Username and Hostname on Ubuntu](https://hepeng.me/changing-username-and-hostname-on-ubuntu/))
+(from [Citrix: Install Linux Virtual Delivery Agent for Ubuntu](https://docs.citrix.com/en-us/linux-virtual-delivery-agent/current-release/installation-overview/ubuntu.html) \
+and [He, Peng: Change the Username and Hostname on Ubuntu](https://hepeng.me/changing-username-and-hostname-on-ubuntu/))
 
+### Table of Contents <!-- omit in toc -->
 - [Prerequisites](#prerequisites)
 - [Choose a Valid Hostname](#choose-a-valid-hostname)
 - [Change the Hostname](#change-the-hostname)
