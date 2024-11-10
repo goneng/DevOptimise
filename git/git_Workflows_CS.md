@@ -1,9 +1,16 @@
-# git Workflows - Cheat-Sheet <!-- omit in toc -->
+# git Workflows - Cheat-Sheet (WIP) <!-- omit in toc -->
 
-- [Check Impact-of-Change](#check-impact-of-change)
-- [Count Lines-of-Code](#count-lines-of-code)
-  - [Using Git and Unix Commands](#using-git-and-unix-commands)
-  - [Using the CLOC script](#using-the-cloc-script)
+### Table of Contents <!-- omit in toc -->
+- [Overview](#overview)
+- [Common Steps](#common-steps)
+- [Specific Steps](#specific-steps)
+  - [Multi-Commit Workflow](#multi-commit-workflow)
+  - [Single-Commit Workflow](#single-commit-workflow)
+- [Other Related Actions](#other-related-actions)
+
+&nbsp;
+
+## Overview
 
 Covers two common workflows for git -
 

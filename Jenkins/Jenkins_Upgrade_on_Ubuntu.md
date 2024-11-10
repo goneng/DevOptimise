@@ -1,5 +1,6 @@
 # How to Upgrade Jenkins LTS Version <!-- omit in toc -->
 
+### Table of Contents <!-- omit in toc -->
 - [Overview](#overview)
 - [1. Check the Current Jenkins Version](#1-check-the-current-jenkins-version)
 - [2. Check the Latest LTS Version](#2-check-the-latest-lts-version)
@@ -16,6 +17,7 @@
 - [8. Verify the Upgrade](#8-verify-the-upgrade)
 - [9. When done, delete the snapshot](#9-when-done-delete-the-snapshot)
 
+&nbsp;
 
 ## Overview
 
@@ -29,6 +31,8 @@ and compare it to the version we are currently using (via the Jenkins UI).
 ```bash
 apt list --installed | grep jenkins
 ```
+
+&nbsp;
 
 ## 2. Check the Latest LTS Version
 
@@ -44,11 +48,15 @@ apt-cache madison jenkins
 apt-cache policy jenkins
 ```
 
+&nbsp;
+
 ## 3. Lock the Jenkins-server via the UI
 
 This is to prevent new jobs from starting.
 
 Wait a few minutes to confirm that running jobs had finished.
+
+&nbsp;
 
 ## 4. Stop Jenkins Service
 
@@ -59,10 +67,14 @@ from being made to the data while upgrading.
 sudo systemctl stop jenkins.service
 ```
 
+&nbsp;
+
 ## 5. Backup Jenkins Data
 
 Take a snapshot of the Jenkins-server main disk, \
 to ensure that you can restore the data in case of any issues.
+
+&nbsp;
 
 ## 6. Upgrade Jenkins and other Packages
 
@@ -111,6 +123,8 @@ Lock the Jenkins package to prevent accidental upgrades:
 sudo apt-mark hold jenkins
 ```
 
+&nbsp;
+
 ## 7. Start Jenkins Service
 
 Start the Jenkins service to apply the changes, unless it starts automatically:
@@ -119,6 +133,8 @@ Start the Jenkins service to apply the changes, unless it starts automatically:
 sudo systemctl status jenkins.service
 sudo systemctl start jenkins.service  # if not already running
 ```
+
+&nbsp;
 
 ## 8. Verify the Upgrade
 
@@ -130,6 +146,8 @@ Can also run this command:
 ```bash
 java -jar jenkins-cli.jar -s http://localhost:8080/ version
 ```
+
+&nbsp;
 
 ## 9. When done, delete the snapshot
 

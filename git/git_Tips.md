@@ -1,5 +1,6 @@
 # git Tips <!-- omit in toc -->
 
+### Table of Contents <!-- omit in toc -->
 - [Check Impact-of-Change](#check-impact-of-change)
 - [Count Lines-of-Code](#count-lines-of-code)
   - [Using the CLOC Tool](#using-the-cloc-tool)

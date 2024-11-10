@@ -3,8 +3,9 @@
 A safe way to add a user to a group\
 (without losing membership in other groups)
 
-(from https://askubuntu.com/a/79566/138065)
+(from [AskUbuntu: How to add existing user to an existing group?](https://askubuntu.com/a/79566/138065))
 
+### Table of Contents <!-- omit in toc -->
 - [List the Current Groups of the User](#list-the-current-groups-of-the-user)
 - [Enlist the User as Part of the Group](#enlist-the-user-as-part-of-the-group)
 - [Confirm Noting was Lost](#confirm-noting-was-lost)

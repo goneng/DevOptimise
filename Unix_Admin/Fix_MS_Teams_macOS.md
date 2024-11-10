@@ -1,7 +1,7 @@
 
 # Fix MS-Teams stuck on macOS <!-- omit in toc -->
 
-## Table of Contents <!-- omit in toc -->
+### Table of Contents <!-- omit in toc -->
 - [Clean MS-Teams Cache](#clean-ms-teams-cache)
 
 &nbsp;

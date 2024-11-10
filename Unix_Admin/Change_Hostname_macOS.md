@@ -2,9 +2,10 @@
 
 Best-practices for naming hosts
 
-(from [AskDifferent - Set the hostname/computer name for macOS](https://apple.stackexchange.com/a/287775/28372) \
-and AutoDesk's Support doc. [How to set the Mac hostname or computer name from the terminal](https://knowledge.autodesk.com/support/smoke/learn-explore/caas/sfdcarticles/sfdcarticles/Setting-the-Mac-hostname-or-computer-name-from-the-terminal.html) )
+(from [AskDifferent: Set the hostname/computer name for macOS](https://apple.stackexchange.com/a/287775/28372) \
+and [AutoDesk's Support doc.: How to set the Mac hostname or computer name from the terminal](https://knowledge.autodesk.com/support/smoke/learn-explore/caas/sfdcarticles/sfdcarticles/Setting-the-Mac-hostname-or-computer-name-from-the-terminal.html))
 
+### Table of Contents <!-- omit in toc -->
 - [Choose a Valid Hostname](#choose-a-valid-hostname)
 - [Check the Current Hostname](#check-the-current-hostname)
 - [Set a New Hostname](#set-a-new-hostname)

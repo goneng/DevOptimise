@@ -1,6 +1,6 @@
 # Set Default Date-Format on macOS Terminal <!-- omit in toc -->
 
-**Table of Contents**
+### Table of Contents <!-- omit in toc -->
 - [1. Identify the Default Shell of your Account](#1-identify-the-default-shell-of-your-account)
 - [2. Set the Default Locale for Terminal](#2-set-the-default-locale-for-terminal)
   - [For Bash (default shell in macOS Mojave and earlier)](#for-bash-default-shell-in-macos-mojave-and-earlier)

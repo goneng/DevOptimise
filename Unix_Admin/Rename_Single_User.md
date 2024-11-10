@@ -5,6 +5,7 @@ this allows you to reassign the machine without reinstalling it.
 
 (base on [Change the Username and Hostname on Ubuntu](https://hepeng.me/changing-username-and-hostname-on-ubuntu/))
 
+### Table of Contents <!-- omit in toc -->
 - [Rename User](#rename-user)
   - [Disable Auto-Login](#disable-auto-login)
   - [Unlock the root Account](#unlock-the-root-account)
