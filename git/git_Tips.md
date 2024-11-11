@@ -12,6 +12,7 @@
   - [Find the Commit that Added a (Large) File](#find-the-commit-that-added-a-large-file)
 - [Get Commit-Statistics](#get-commit-statistics)
   - [Get Commit-Count by Author](#get-commit-count-by-author)
+- [Rename the Default Branch from 'master' to 'main'](#rename-the-default-branch-from-master-to-main)
 
 &nbsp;
 
@@ -118,3 +119,18 @@ git shortlog --summary --numbered --all --no-merges --email
 (from [Git number of commits per author on all branches](https://stackoverflow.com/a/9839491/1390251))
 
 &nbsp;
+
+## Rename the Default Branch from 'master' to 'main'
+
+1. Change the name of the default branch via the UI of GitLab/GitHub
+2. Run the following commands on your local copy of that repo:
+    ```bash
+    git branch -m master main
+    git fetch origin
+    git branch -u origin/main main
+    git remote set-head origin -a
+    # Optional:
+    git fetch --prune
+    ```
+&nbsp;
+
