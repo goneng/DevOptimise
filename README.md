@@ -8,6 +8,7 @@ DevOps Tips
 - [Collaboration and Documentation Tools](#collaboration-and-documentation-tools)
   - [Guides](#guides)
   - [Tools](#tools)
+- [Edge Computing](#edge-computing)
 - [git](#git)
 - [GitLab](#gitlab)
 - [Jenkins](#jenkins)
@@ -30,6 +31,13 @@ DevOps Tips
 - [MediaWiki - Open Source Wiki Software](https://www.mediawiki.org/wiki/MediaWiki)
 - [DokuWiki - Simple to use Wiki Software](https://www.dokuwiki.org/dokuwiki)
 - [HackMD - Collaborative Markdown Editor](https://hackmd.io/)
+
+&nbsp;
+
+## Edge Computing
+
+- [Edge-Computing Explained](./Edge_Computing/edge-computing-explained.md)
+- [Software Update Tools - Comparison](./Edge_Computing/software-update-tools-comparison.md)
 
 &nbsp;
 
