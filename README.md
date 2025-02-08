@@ -4,12 +4,32 @@ DevOps Tips
 
 ([How to view Markdown in browser on Unix](https://superuser.com/a/1175837/160372) )
 
+### Table of Contents <!-- omit in toc -->
+- [Collaboration and Documentation Tools](#collaboration-and-documentation-tools)
+  - [Guides](#guides)
+  - [Tools](#tools)
 - [git](#git)
 - [GitLab](#gitlab)
 - [Jenkins](#jenkins)
 - [MarkDown](#markdown)
 - [Python](#python)
 - [Unix Admin](#unix-admin)
+- [Tutorials, Guides and Tips](#tutorials-guides-and-tips)
+
+&nbsp;
+
+## Collaboration and Documentation Tools
+
+### Guides
+
+- [Markdown Guide](https://www.markdownguide.org/)
+- [PlantUML - Diagrams as Code](https://plantuml.com/)
+
+### Tools
+
+- [MediaWiki - Open Source Wiki Software](https://www.mediawiki.org/wiki/MediaWiki)
+- [DokuWiki - Simple to use Wiki Software](https://www.dokuwiki.org/dokuwiki)
+- [HackMD - Collaborative Markdown Editor](https://hackmd.io/)
 
 &nbsp;
 
@@ -71,5 +91,11 @@ DevOps Tips
 - [Rename User (on single-user Ubuntu machines)](Unix_Admin/Rename_Single_User.md)
 - [Set Default Date-Format on macOS Terminal](Unix_Admin/Set_Date-Format_macOS.md)
 - [View Markdown in Browser on Unix](Unix_Admin/View_Markdown_on_Unix.md)
+
+&nbsp;
+
+## Tutorials, Guides and Tips
+
+- [Cheat-Sheets from HackingNote](https://www.hackingnote.com/en/cheatsheets/)
 
 &nbsp;
