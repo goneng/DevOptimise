@@ -1,0 +1,10 @@
+PYTHON_VERSION=3.11
+VENV_DIR=./venv_p${PYTHON_VERSION}
+python${PYTHON_VERSION} -m venv "${VENV_DIR}"
+source "${VENV_DIR}/bin/activate"
+pip install --upgrade pip
+pip install -r ./requirements.txt
+echo "*\n" > "${VENV_DIR}/.gitignore"
+
+echo "To Deactivate the virtual environment, run:"
+echo "'deactivate'"
