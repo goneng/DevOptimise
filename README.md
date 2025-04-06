@@ -8,6 +8,7 @@ DevOps Tips
 - [Collaboration and Documentation Tools](#collaboration-and-documentation-tools)
   - [Guides](#guides)
   - [Tools](#tools)
+- [Azure DevOps](#azure-devops)
 - [Edge Computing](#edge-computing)
 - [git](#git)
 - [GitLab](#gitlab)
@@ -34,6 +35,12 @@ DevOps Tips
 - [HackMD - Collaborative Markdown Editor](https://hackmd.io/)
 - [BableMark - Validate your MarkDown syntax across multiple interpreters](https://babelmark.github.io/)
 - [Tip: How to view Markdown in browser on Unix](https://superuser.com/a/1175837/160372)
+
+&nbsp;
+
+## Azure DevOps
+
+- [Azure DevOps - CLI](Azure_DevOps/Azure_DevOps_CLI.md)
 
 &nbsp;
 
