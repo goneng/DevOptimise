@@ -95,6 +95,7 @@ DevOps Tips
 - [Change Hostname - macOS](Unix_Admin/Change_Hostname_macOS.md)
 - [Fix MS-Teams on macOS](Unix_Admin/Fix_MS_Teams_macOS.md)
 - [Import CA Root Certificate to Linux](Unix_Admin/Import_CA_Root_Certificate.md)
+- [Makefiles vs. Shell Aliases - A Comparison Guide](Unix_Admin/Makefiles_vs_Aliases.md)
 - [Manage Software Packages](Unix_Admin/Package_Manager.md)
 - [Rename User (on single-user Ubuntu machines)](Unix_Admin/Rename_Single_User.md)
 - [Set Default Date-Format on macOS Terminal](Unix_Admin/Set_Date-Format_macOS.md)
