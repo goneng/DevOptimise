@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # (run with 'exit-on-error')
 
-SCRIPT_NAME=$(basename $0)
+SCRIPT_NAME=$(basename "$0")
 echo "--- -----------------------------------------------------------------------------------------"
 echo "-S- ${SCRIPT_NAME}: Save changes to Jenkins-git repository"
 echo "--- -----------------------------------------------------------------------------------------"
@@ -9,9 +9,9 @@ echo "--- ----------------------------------------------------------------------
 # Set default values for parameters, case they are empty or undefined
 : "${VERBOSE:=false}"
 
-if [[ -e $GIT_TOOL ]]
+if [[ -e "$GIT_TOOL" ]]
 then
-  GIT_VERSION=`$GIT_TOOL --version`
+  GIT_VERSION=$($GIT_TOOL --version)
   echo "-I- Using git '$GIT_TOOL'"
   echo "-I-       $GIT_VERSION"
 else
@@ -32,7 +32,7 @@ else
   exit 7
 fi
 
-cd $JENKINS_HOME
+cd "$JENKINS_HOME"
 
 if [[ ${VERBOSE} != false ]]
 then
@@ -49,7 +49,7 @@ echo "-I- Make sure we are up-to-date with remote repo"
 $GIT_TOOL fetch
 $GIT_TOOL status
 $GIT_TOOL stash list
-GIT_STASH_RESULT=`$GIT_TOOL stash`
+GIT_STASH_RESULT=$($GIT_TOOL stash)
 $GIT_TOOL pull --rebase
 
 if [[ $GIT_STASH_RESULT == "No local changes to save" ]]
@@ -76,16 +76,16 @@ echo "-I- Save the main configuration-file"
 $GIT_TOOL add config.xml
 echo "-I-"
 echo "-I- Save any other configuration-file"
-find jobs -name "config.xml"  -exec $GIT_TOOL add {} \;
+find jobs -name "config.xml"  -exec "$GIT_TOOL" add {} \;
 echo "-I-"
 echo "-I- Save agent-configuration files (nodes)"
-find nodes -name "config.xml"  -exec $GIT_TOOL add {} \;
+find nodes -name "config.xml"  -exec "$GIT_TOOL" add {} \;
 echo "-I-"
 echo "-I- Get rid of any files that were deleted"
-FILES_TO_DELETE=`$GIT_TOOL ls-files --deleted | wc -l`
+FILES_TO_DELETE=$($GIT_TOOL ls-files --deleted | wc -l)
 if [[ $FILES_TO_DELETE -gt 0 ]]
 then
-  $GIT_TOOL ls-files --deleted -z | xargs -0 $GIT_TOOL rm --
+  $GIT_TOOL ls-files --deleted -z | xargs -0 "$GIT_TOOL" rm --
 fi
 echo "-I-"
 echo "-I- Commit your work to the Jenkins repository"

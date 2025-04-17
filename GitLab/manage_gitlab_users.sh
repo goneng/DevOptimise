@@ -17,7 +17,7 @@ source "$(dirname "$0")/../devops_fun.sh"
 
 if [[ -z "${GITLAB_TOKEN}" ]]
 then
-  export GITLAB_TOKEN="$(${GIT_ROOT}/GitLab/get_gitlab_token.sh ${SERVER})"
+  export GITLAB_TOKEN="$("${GIT_ROOT}"/GitLab/get_gitlab_token.sh "${SERVER}")"
 fi
 do_fun_validate_param_silent GITLAB_TOKEN
 
@@ -34,7 +34,7 @@ then
   set -x
 fi
 
-cd $SCRIPT_HOME
+cd "$SCRIPT_HOME"
 
 # Prepare/use the Virtual-Env ______________________________
 VENV_DIR="${SCRIPT_NAME%.*}_venv"  # Strip the extension from the (short) filename
