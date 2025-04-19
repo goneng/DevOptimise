@@ -15,13 +15,7 @@ esac
 
 echo "running my .bashrc ($0)"
 
-# Set the prompt
-PS1="\u@\h:\w\$ "
-
-# Add any aliases you want
-alias ll='ls -alF'
-
-# enable color support of ls and also add handy aliases ______________________
+# Enable color support of ls and also add handy aliases ______________________
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
@@ -39,7 +33,11 @@ then
   source ${MY_ALIASES_FILE}
 else
   echo "(no '${MY_ALIASES_FILE}' file - skipping)"
+  alias ll='ls -alF'
 fi
+
+# Set a basic prompt
+PS1="\u@\h:\w\$ "
 
 # Enable command auto-completion
 if [ -f /etc/bash_completion ]
@@ -68,4 +66,21 @@ then
     PS1='\u@\h \W$(__git_ps1 " (%s)") \$ '
 else
   echo "(no '${MY_GIT_PROMPT_FILE}' file - skipping)"
+fi
+
+# Load KubeCTL Completion ____________________________________________________
+#  - see https://komodor.com/learn/kubectl-autocomplete-enabling-and-using-in-bash-zsh-and-powershell/
+if command -v kubectl &> /dev/null
+then
+  MY_KUBECTL_COMPLETION_FILE=~/.bash/kubectl-completion.bash
+  (kubectl completion bash) > ${MY_KUBECTL_COMPLETION_FILE}
+  if [[ -f ${MY_KUBECTL_COMPLETION_FILE} ]]
+  then
+    echo "Sourcing '${MY_KUBECTL_COMPLETION_FILE}' ..."
+    source ${MY_KUBECTL_COMPLETION_FILE}
+  else
+    echo "(no '${MY_KUBECTL_COMPLETION_FILE}' file - skipping)"
+  fi
+else
+  echo "(kubectl not found, skipping completion setup)"
 fi
