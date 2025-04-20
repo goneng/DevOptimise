@@ -1,4 +1,4 @@
-# DevOptimize <!-- omit in toc -->
+# DevOptimise <!-- omit in toc -->
 
 DevOps Tips
 
