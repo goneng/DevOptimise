@@ -8,7 +8,7 @@ alias ltr='ls -lhtr'
 
 # Go to ... ___________________
 alias gogit='cd ~/GitRepos/'
-alias godop='cd ~/GitRepos/DevOptimize/'
+alias godop='cd ~/GitRepos/DevOptimise/'
 alias gokube='cd ~/GitRepos/Kube_Tutor/'
 
 # Git _________________________
