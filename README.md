@@ -2,7 +2,7 @@
 
 DevOps Tips
 
-([How to view Markdown in browser on Unix](https://superuser.com/a/1175837/160372) )
+&nbsp;
 
 ### Table of Contents <!-- omit in toc -->
 - [Collaboration and Documentation Tools](#collaboration-and-documentation-tools)
@@ -12,7 +12,6 @@ DevOps Tips
 - [git](#git)
 - [GitLab](#gitlab)
 - [Jenkins](#jenkins)
-- [MarkDown](#markdown)
 - [Python](#python)
 - [Unix Admin](#unix-admin)
 - [Tutorials, Guides and Tips](#tutorials-guides-and-tips)
@@ -31,6 +30,8 @@ DevOps Tips
 - [MediaWiki - Open Source Wiki Software](https://www.mediawiki.org/wiki/MediaWiki)
 - [DokuWiki - Simple to use Wiki Software](https://www.dokuwiki.org/dokuwiki)
 - [HackMD - Collaborative Markdown Editor](https://hackmd.io/)
+- [BableMark - Validate your MarkDown syntax across multiple interpreters](https://babelmark.github.io/)
+- [Tip: How to view Markdown in browser on Unix](https://superuser.com/a/1175837/160372)
 
 &nbsp;
 
@@ -71,12 +72,6 @@ DevOps Tips
 
 - [Jenkins - Install on Ubuntu](Jenkins/Jenkins_Upgrade_on_Ubuntu.md)
 - [Jenkins - Backup jobs and settings (shell-script)](Jenkins/jenkins_jobs_backup_to_git.sh)
-
-&nbsp;
-
-## MarkDown
-
-- [BableMark - Validate your MD syntax across multiple interpreters](https://babelmark.github.io/)
 
 &nbsp;
 
