@@ -102,6 +102,7 @@ DevOps Tips
 - [Change Hostname - macOS](Unix_Admin/Change_Hostname_macOS.md)
 - [Fix MS-Teams on macOS](Unix_Admin/Fix_MS_Teams_macOS.md)
 - [Set Default Date-Format on macOS Terminal](Unix_Admin/Set_Date-Format_macOS.md)
+- [Troubleshoot Parallels v16 Installation](Unix_Admin/Troubleshoot_Parallels-16.md)
 
 &nbsp;
 
