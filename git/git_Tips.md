@@ -92,7 +92,7 @@ git rev-list --objects --all |
   sed -n 's/^blob //p' |
   sort --human-numeric-sort --reverse --key=2 |
   cut -c 1-12,41- |
-  $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest | head -n $FILE_COUNT
+  $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest | head -n "$FILE_COUNT"
 ```
 
 (from [How to find/identify large commits in git history?](https://stackoverflow.com/a/42544963/1390251))

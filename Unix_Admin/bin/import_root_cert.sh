@@ -7,7 +7,7 @@
 ### (e.g. Firefox, Thunderbird, Chromium)
 ### Mozilla uses cert8, Chromium and Chrome use cert9
 
-SCRIPT_NAME=$(basename $0)
+SCRIPT_NAME=$(basename "$0")
 echo "--- -----------------------------------------------------------------------------------------"
 echo "-S- ${SCRIPT_NAME}: Import Root-Certificate to this Host"
 echo "--- -----------------------------------------------------------------------------------------"
@@ -28,11 +28,11 @@ function add_cert {
   cert_db_path=$2
   cert_dest=$3
   cert_name=$4
-  cert_dir=$(dirname ${cert_db_path})
+  cert_dir=$(dirname "${cert_db_path}")
 
   echo "-I- Adding certificate '${cert_dest}'"
   echo "                    as '${cert_name}'"
-  sudo certutil -A -n "${cert_name}" -t "TCu,Cu,Tu" -i ${cert_dest} -d ${cert_db_type}:${cert_dir}
+  sudo certutil -A -n "${cert_name}" -t "TCu,Cu,Tu" -i "${cert_dest}" -d "${cert_db_type}":"${cert_dir}"
   echo
 }
 
@@ -87,7 +87,7 @@ then
   echo "    - assume we are all set"
 else
   echo "-I- Creating a folder for our \"Extra\" certificates (${CERT_DEST})"
-  sudo mkdir -p ${CERT_DEST}
+  sudo mkdir -p "${CERT_DEST}"
 
   #FIXME: Have a separate test for this
   echo "-I- Making sure we have the \"Network Security Service tools\""
@@ -96,18 +96,18 @@ fi
 
 # Avoid having two certificates with the same name, i.e.: ensure uniqueness
 # (see https://punkwalrus.livejournal.com/1198022.html )
-CURR_TIME=`date +%Y-%m-%d_%H-%M`
+CURR_TIME=$(date +%Y-%m-%d_%H-%M)
 CERT_NAME="${CERT_NAME} (${CURR_TIME})"
-CERT_FILE_BASE=$(basename $CERT_FILE)
+CERT_FILE_BASE=$(basename "$CERT_FILE")
 CERT_FILE_DEST=${CERT_DEST}/${CERT_FILE_BASE}
 
 echo "-I- Copying the certificate '${CERT_FILE}'"
 echo "-I-                      to '${CERT_DEST}'"
-sudo cp ${CERT_FILE} "${CERT_DEST}/"
+sudo cp "${CERT_FILE}" "${CERT_DEST}/"
 echo
 
 ### For cert8 (legacy - DBM)
-find ${HOME}/ -name 'cert8.db' |
+find "${HOME}"/ -name 'cert8.db' |
 while read CERT_DB
 do
   list_certs dbm "${CERT_DB}"
@@ -115,7 +115,7 @@ do
 done
 
 ### For cert9 (SQL)
-find ${HOME}/ -name 'cert9.db' |
+find "${HOME}"/ -name 'cert9.db' |
 while read CERT_DB
 do
   list_certs sql "${CERT_DB}"

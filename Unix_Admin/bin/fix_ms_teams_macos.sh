@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # (run with 'exit-on-error')
 
-SCRIPT_NAME=$(basename $0)
+SCRIPT_NAME=$(basename "$0")
 echo "--- -----------------------------------------------------------------------------------------"
 echo "-S- ${SCRIPT_NAME}: Clean MS-Teams cache on MacOS"
 echo "--- -----------------------------------------------------------------------------------------"
@@ -15,7 +15,7 @@ echo "See https://apple.stackexchange.com/a/407428/28372"
 
 # MAIN ---------------------------------------------------------------------------------------------
 
-if [[ -d ${CACHE_FLDR} ]]
+if [[ -d "${CACHE_FLDR}" ]]
 then
   rm -rf "${CACHE_FLDR}"
 else
@@ -23,7 +23,7 @@ else
   echo "    (${CACHE_FLDR})"
 fi
 
-if [[ -d ${APPSUP_FLDR} ]]
+if [[ -d "${APPSUP_FLDR}" ]]
 then
   rm "${APPSUP_FLDR}/desktop-config.json"
   rm "${APPSUP_FLDR}/storage.json"
