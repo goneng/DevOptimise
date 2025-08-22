@@ -70,12 +70,12 @@ function do_fun_get_token_from_env() {
 function do_fun_confirm_we_have_command_from_package() {
   COMMAND=$1
   PACKAGE=$2
-  if ! command -v $COMMAND &> /dev/null
+  if ! command -v "$COMMAND" &> /dev/null
   then
     { do_fun_trace_wrn "'$COMMAND' could not be found -"; } 2> /dev/null
     { do_fun_trace_wrn "'$COMMAND' should be pre-installed as root."; } 2> /dev/null
     { do_fun_trace_inf "Let's give it a try:"; } 2> /dev/null
-    sudo apt install -y $PACKAGE
+    sudo apt install -y "$PACKAGE"
   fi
 }
 
@@ -90,19 +90,19 @@ function do_fun_confirm_we_have_jq() {
 function do_fun_confirm_we_have_python3_package() {
   PIP_PACKAGE=$1
 
-  if ! command -v $PIP_PACKAGE &> /dev/null
+  if ! command -v "$PIP_PACKAGE" &> /dev/null
   then
     { do_fun_trace_wrn "pip3 package '$PIP_PACKAGE' could not be found -"; } 2> /dev/null
     { do_fun_trace_wrn "pip3 package '$PIP_PACKAGE' should be pre-installed as root."; } 2> /dev/null
     { do_fun_trace_inf "Let's give it a try:"; } 2> /dev/null
-    sudo pip3 install $PIP_PACKAGE
+    sudo pip3 install "$PIP_PACKAGE"
   fi
 }
 
 function do_fun_reset_virtualenv_dir() {
   VENV_DIR=$1
   RESET_VENV=$2
-  : ${VENV_DIR:=MISSING_DIR_NAME}    # Set default value
+  : "${VENV_DIR:=MISSING_DIR_NAME}"    # Set default value
 
   if [[ ${RESET_VENV:-false} != "false" ]]
   then
@@ -122,9 +122,9 @@ function do_fun_reset_virtualenv_dir() {
       { do_fun_trace_err "Trying to delete '..' - Exiting"; } 2> /dev/null
       exit 8
     fi
-    if [[ -d ${VENV_DIR} ]]
+    if [[ -d "${VENV_DIR}" ]]
     then
-      rm -Rf ${VENV_DIR}
+      rm -Rf "${VENV_DIR}"
       { do_fun_trace_inf "RESETTING VENV '${VENV_DIR}' - Done"; } 2> /dev/null
     else
       { do_fun_trace_dbg "VENV Dir not found: '${VENV_DIR}' - skipping"; } 2> /dev/null
@@ -135,10 +135,10 @@ function do_fun_reset_virtualenv_dir() {
 function do_func_show_command_version() {
   COMMAND=$1
   VERSION_FLAG=$2
-  : ${VERSION_FLAG:=--version}    # Set default value
+  : "${VERSION_FLAG:=--version}"    # Set default value
 
   { do_fun_trace "${COMMAND} ${VERSION_FLAG}: _________________________________________________________"; } 2> /dev/null
-  if command -v ${COMMAND} &> /dev/null
+  if command -v "${COMMAND}" &> /dev/null
   then
     "${COMMAND}" ${VERSION_FLAG}
   else
