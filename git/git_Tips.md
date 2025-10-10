@@ -85,13 +85,21 @@ git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objec
 
 ### Find the 7 Largest Files in a Repository
 
+For macOS, make sure you have `coreutils`:
+
+```bash
+brew install coreutils
+```
+
+then run:
+
 ```bash
 export FILE_COUNT=7;
 git rev-list --objects --all |
   git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
   sed -n 's/^blob //p' |
   sort --human-numeric-sort --reverse --key=2 |
-  cut -c 1-12,41- |
+  $(command -v gcut    || echo cut) -c 1-12,41- |
   $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest | head -n "$FILE_COUNT"
 ```
 
