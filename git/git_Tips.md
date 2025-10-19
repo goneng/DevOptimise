@@ -12,6 +12,7 @@
   - [Find the Commit that Added a (Large) File](#find-the-commit-that-added-a-large-file)
 - [Get Commit-Statistics](#get-commit-statistics)
   - [Get Commit-Count by Author](#get-commit-count-by-author)
+- [Merge Two Git-Repositories](#merge-two-git-repositories)
 - [Rename the Default Branch from 'master' to 'main'](#rename-the-default-branch-from-master-to-main)
 
 &nbsp;
@@ -125,6 +126,30 @@ git shortlog --summary --numbered --all --no-merges --email
 ```
 
 (from [Git number of commits per author on all branches](https://stackoverflow.com/a/9839491/1390251))
+
+&nbsp;
+
+## Merge Two Git-Repositories
+
+Use this when you have two git-repositories that started the same, and later got diverged. \
+(If these repositories are completely different than there is not my point in merging them)
+
+**To merge branch some-branch from project-a into project-b:**
+
+```bash
+cd path/to/project-a
+git checkout some-branch
+
+cd path/to/project-b
+git remote add project-a /path/to/project-a
+git fetch project-a --tags
+git merge                             project-a/some-branch
+# OR:
+git merge --allow-unrelated-histories project-a/some-branch
+git remote remove project-a
+```
+
+(from [How do you merge two Git repositories?](https://stackoverflow.com/a/10548919/1390251))
 
 &nbsp;
 
