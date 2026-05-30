@@ -1,0 +1,70 @@
+diff --git a/.claude/CLAUDE.md b/.claude/CLAUDE.md
+new file mode 100644
+index 0000000..c0e659c
+--- /dev/null
++++ b/.claude/CLAUDE.md
+@@ -0,0 +1,20 @@
++## Behavioral Instructions for Claude
++
++- Be concise. No affirmations or filler phrases.
++- No emojis or special characters or arrow-characters.
++- No em-dashes or en-dashes.
++
++- When uncertain, say so plainly.
++- If a request has multiple plausible interpretations, present them and ask. Don't pick silently.
++
++- Match existing code style in a file even if you'd write it differently.
++- If you notice unrelated dead code or issues, mention them. Don't delete or "improve" them unless asked.
++- Every changed line should trace to the request. No drive-by edits to adjacent code, comments, or formatting.
++- Cherry-picks: apply the full source commit when self-contained, not just the line tied to the ticket, and if scope is unclear - ask.
++- When iterating on the same fix, prefer amending the commit, and if not sure - ask.
++
++- PR descriptions and commit bodies: 1-sentence summary + 2-4 change bullets; PRs add a 2-3 bullet test plan.
++- Long-form details belong in Jira; if no ticket, ask whether the commit body or a doc fits better.
++
++- For bug fixes: write a failing test that reproduces the bug first, then make it pass.
++- For refactors: confirm tests pass before and after.
+diff --git a/.claude/settings.json b/.claude/settings.json
+new file mode 100644
+index 0000000..ac93f50
+--- /dev/null
++++ b/.claude/settings.json
+@@ -0,0 +1,38 @@
++{
++  "extraKnownMarketplaces": {
++    "claude-plugins-official": {
++      "source": {
++        "source": "github",
++        "repo": "anthropics/claude-plugins-official"
++      }
++    }
++  },
++  "theme": "auto",
++  "permissions": {
++    "allow": [
++      "Read",
++      "Bash(ls:*)",
++      "Bash(pwd)",
++      "Bash(which:*)",
++      "Bash(cat:*)",
++      "Bash(file:*)",
++      "Bash(rg:*)",
++      "Bash(grep:*)",
++      "Bash(find:*)",
++      "Bash(git status:*)",
++      "Bash(git diff:*)",
++      "Bash(git log:*)",
++      "Bash(git show:*)",
++      "Bash(git push --force-with-lease:*)"
++    ],
++    "deny": [
++      "Bash(rm -rf:*)",
++      "Bash(rm -fr:*)",
++      "Bash(git push -f:*)"
++    ]
++  },
++  "statusLine": {
++    "type": "command",
++    "command": "printf '%s' \"$(basename \"$PWD\")$(git branch --show-current 2>/dev/null | sed 's|^| on |')\""
++  }
++}

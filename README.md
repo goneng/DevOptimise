@@ -5,6 +5,7 @@ DevOps Tips
 &nbsp;
 
 ### Table of Contents <!-- omit in toc -->
+- [Claude Code](#claude-code)
 - [Collaboration and Documentation Tools](#collaboration-and-documentation-tools)
   - [Guides](#guides)
   - [Tools](#tools)
@@ -17,6 +18,12 @@ DevOps Tips
   - [Unix in General](#unix-in-general)
   - [macOS Specific](#macos-specific)
 - [Tutorials, Guides and Tips](#tutorials-guides-and-tips)
+
+&nbsp;
+
+## Claude Code
+
+- [Baseline config and older-Mac setup](./Claude/README.md)
 
 &nbsp;
 
