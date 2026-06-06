@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Set environment variables
-export PATH="$PATH:${HOME}/bin"
+# Set environment variables __________________________________________________
+export PATH="$PATH:${HOME}/bin:${HOME}/go/bin"
 
-# Force locale en_US.UTF-8 ____________________________________________________
+# Force locale en_US.UTF-8 ___________________________________________________
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
