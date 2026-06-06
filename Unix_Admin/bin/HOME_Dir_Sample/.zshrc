@@ -82,3 +82,17 @@ then
 else
   echo "(kubectl not found, skipping completion setup)"
 fi
+
+# NVM (Node Version Manager) __________________________________________________
+# Lazy-load: stubs replace themselves with the real NVM on first call, so
+# startup cost is paid only when node/npm/npx/nvm is first invoked.
+export NVM_DIR="$HOME/.nvm"
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+node() { nvm; node "$@"; }
+npm()  { nvm; npm  "$@"; }
+npx()  { nvm; npx  "$@"; }
